@@ -41,17 +41,69 @@ updateCountdown();
 // Update countdown every second
 setInterval(updateCountdown, 1000);
 
-// Add some interactive effects
-document.querySelectorAll('.countdown-box').forEach(box => {
+// Add battle-themed interactive effects
+document.querySelectorAll('.countdown-box').forEach((box, index) => {
+    // Staggered pulsing effect
+    box.style.animationDelay = `${index * 0.2}s`;
+
     box.addEventListener('mouseenter', function() {
-        this.style.borderColor = '#00f0ff';
-        this.querySelector('.time-value').style.color = '#00f0ff';
-        this.querySelector('.time-label').style.color = '#00f0ff';
+        this.style.borderColor = '#d4af37';
+        this.style.transform = 'translateY(-8px) scale(1.05)';
+
+        // Add a subtle battle sound effect simulation via visual feedback
+        this.style.boxShadow = `
+            0 12px 35px rgba(0, 0, 0, 0.9),
+            inset 0 0 40px rgba(212, 175, 55, 0.3),
+            0 0 60px rgba(212, 175, 55, 0.6)
+        `;
     });
 
     box.addEventListener('mouseleave', function() {
-        this.style.borderColor = '#00ff41';
-        this.querySelector('.time-value').style.color = '#00ff41';
-        this.querySelector('.time-label').style.color = '#00ff41';
+        this.style.borderColor = '#8b7355';
+        this.style.transform = '';
+        this.style.boxShadow = '';
     });
 });
+
+// Add dynamic atmosphere to game tags
+document.querySelectorAll('.game-tag').forEach(tag => {
+    tag.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px) scale(1.1)';
+        this.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.6)';
+    });
+
+    tag.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+        this.style.boxShadow = '';
+    });
+});
+
+// Battle cry effect when countdown ends
+let battleCryShown = false;
+
+// Enhanced countdown end behavior
+const originalUpdate = updateCountdown;
+updateCountdown = function() {
+    originalUpdate();
+
+    const now = new Date();
+    const difference = targetDate - now;
+
+    if (difference <= 0 && !battleCryShown) {
+        battleCryShown = true;
+
+        // Enhanced "battle ready" state
+        const tagline = document.querySelector('.tagline');
+        tagline.textContent = 'THE BATTLE BEGINS!';
+        tagline.style.animation = 'battlePulse 0.5s ease-in-out infinite';
+        tagline.style.borderColor = '#d4af37';
+        tagline.style.color = '#f4e4c1';
+        tagline.style.fontSize = '1.6rem';
+
+        // Add dramatic effect to all countdown boxes
+        document.querySelectorAll('.countdown-box').forEach(box => {
+            box.style.borderColor = '#d4af37';
+            box.style.animation = 'battlePulse 0.8s ease-in-out infinite';
+        });
+    }
+};
