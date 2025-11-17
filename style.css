@@ -326,7 +326,7 @@ body::after {
     align-items: center;
     gap: 25px;
     margin: 50px 0;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .countdown-box {
@@ -580,32 +580,33 @@ body::after {
     }
 
     .countdown-container {
-        gap: 15px;
+        gap: 8px;
     }
 
     .countdown-box {
-        min-width: 90px;
-        padding: 15px 20px;
+        min-width: 70px;
+        padding: 12px 8px;
     }
 
     .time-value {
-        font-size: 2.8rem;
+        font-size: 2rem;
     }
 
     .time-label {
-        font-size: 0.75rem;
-        letter-spacing: 2px;
+        font-size: 0.65rem;
+        letter-spacing: 1px;
     }
 
     .separator {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
 
     .event-date {
         font-size: 1.2rem;
         letter-spacing: 2px;
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
+        flex-wrap: wrap;
     }
 
     .date-icon {
@@ -629,7 +630,7 @@ body::after {
 
 @media (max-width: 480px) {
     .container {
-        padding: 30px 20px;
+        padding: 30px 10px;
     }
 
     .title-main {
@@ -651,22 +652,27 @@ body::after {
         font-size: 1rem;
     }
 
+    .countdown-container {
+        gap: 4px;
+    }
+
     .countdown-box {
-        min-width: 75px;
-        padding: 12px 15px;
+        min-width: 60px;
+        padding: 10px 5px;
     }
 
     .time-value {
-        font-size: 2.2rem;
+        font-size: 1.6rem;
     }
 
     .time-label {
-        font-size: 0.65rem;
-        margin-top: 8px;
+        font-size: 0.55rem;
+        margin-top: 6px;
+        letter-spacing: 0.5px;
     }
 
     .separator {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .tagline {
