@@ -756,6 +756,17 @@ body::after {
         letter-spacing: 1px;
     }
 
+    .rune-line {
+        bottom: 6px;
+        height: 2px;
+    }
+
+    .rune-line::before,
+    .rune-line::after {
+        width: 4px;
+        height: 4px;
+    }
+
     .separator {
         font-size: 1.8rem;
     }
@@ -863,6 +874,10 @@ body::after {
         letter-spacing: 0.5px;
     }
 
+    .rune-line {
+        display: none;
+    }
+
     .separator {
         font-size: 1.5rem;
     }
@@ -885,16 +900,7 @@ body::after {
     }
 
     .rune {
-        font-size: 1.5rem;
-        bottom: 15px;
-    }
-
-    .rune-left {
-        left: 15px;
-    }
-
-    .rune-right {
-        right: 15px;
+        display: none;
     }
 
     .crossed-axes {
