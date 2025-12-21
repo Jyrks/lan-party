@@ -1,7 +1,7 @@
-// Set the target date to December 13, 2025 at 12:00 in Europe/Tallinn timezone
+// Set the target date to March 21, 2026 at 12:00 in Europe/Tallinn timezone
 // Europe/Tallinn is UTC+2 (EET) in winter, UTC+3 (EEST) in summer
-// December is in winter time, so UTC+2
-const targetDate = new Date('2025-12-13T12:00:00+02:00');
+// March 21 is before DST change (last Sunday of March), so UTC+2
+const targetDate = new Date('2026-03-21T12:00:00+02:00');
 
 function updateCountdown() {
     const now = new Date();
@@ -41,45 +41,33 @@ updateCountdown();
 // Update countdown every second
 setInterval(updateCountdown, 1000);
 
-// Add battle-themed interactive effects
+// Add Valheim-themed interactive effects
 document.querySelectorAll('.countdown-box').forEach((box, index) => {
     // Staggered pulsing effect
     box.style.animationDelay = `${index * 0.2}s`;
 
     box.addEventListener('mouseenter', function() {
-        this.style.borderColor = '#d4af37';
-        this.style.transform = 'translateY(-8px) scale(1.05)';
+        this.style.borderColor = '#d4a853';
+        this.style.transform = 'translateY(-10px) scale(1.05)';
 
-        // Add a subtle battle sound effect simulation via visual feedback
+        // Add fire glow effect (Valheim campfire style)
         this.style.boxShadow = `
             0 12px 35px rgba(0, 0, 0, 0.9),
-            inset 0 0 40px rgba(212, 175, 55, 0.3),
-            0 0 60px rgba(212, 175, 55, 0.6)
+            inset 0 0 40px rgba(212, 168, 83, 0.2),
+            0 0 60px rgba(212, 168, 83, 0.4),
+            0 0 80px rgba(255, 157, 58, 0.3)
         `;
     });
 
     box.addEventListener('mouseleave', function() {
-        this.style.borderColor = '#8b7355';
+        this.style.borderColor = '#6b4d3a';
         this.style.transform = '';
         this.style.boxShadow = '';
     });
 });
 
-// Add dynamic atmosphere to game tags
-document.querySelectorAll('.game-tag').forEach(tag => {
-    tag.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-5px) scale(1.1)';
-        this.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.6)';
-    });
-
-    tag.addEventListener('mouseleave', function() {
-        this.style.transform = '';
-        this.style.boxShadow = '';
-    });
-});
-
-// Battle cry effect when countdown ends
-let battleCryShown = false;
+// Viking horn effect when countdown ends
+let vikingHornShown = false;
 
 // Enhanced countdown end behavior
 const originalUpdate = updateCountdown;
@@ -89,21 +77,21 @@ updateCountdown = function() {
     const now = new Date();
     const difference = targetDate - now;
 
-    if (difference <= 0 && !battleCryShown) {
-        battleCryShown = true;
+    if (difference <= 0 && !vikingHornShown) {
+        vikingHornShown = true;
 
-        // Enhanced "battle ready" state
+        // Enhanced "Viking awakened" state
         const tagline = document.querySelector('.tagline');
-        tagline.textContent = 'THE BATTLE BEGINS!';
-        tagline.style.animation = 'battlePulse 0.5s ease-in-out infinite';
-        tagline.style.borderColor = '#d4af37';
-        tagline.style.color = '#f4e4c1';
-        tagline.style.fontSize = '1.6rem';
+        tagline.textContent = 'VIIKING ON ÄRGANUD!';
+        tagline.style.animation = 'odinCall 0.5s ease-in-out infinite';
+        tagline.style.borderColor = '#d4a853';
+        tagline.style.color = '#ff9d3a';
+        tagline.style.fontSize = '1.5rem';
 
-        // Add dramatic effect to all countdown boxes
+        // Add dramatic Norse effect to all countdown boxes
         document.querySelectorAll('.countdown-box').forEach(box => {
-            box.style.borderColor = '#d4af37';
-            box.style.animation = 'battlePulse 0.8s ease-in-out infinite';
+            box.style.borderColor = '#d4a853';
+            box.style.animation = 'runeGlow 0.8s ease-in-out infinite';
         });
     }
 };

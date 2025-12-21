@@ -4,10 +4,12 @@
     box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700;900&display=swap');
+
 body {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    background: linear-gradient(135deg, #1a1612 0%, #2d2418 25%, #1f1a14 50%, #2a241c 75%, #1a1612 100%);
-    color: #d4af37;
+    font-family: 'Cinzel', 'Georgia', serif;
+    background: linear-gradient(180deg, #0a0d12 0%, #121820 30%, #0d1218 60%, #080a0e 100%);
+    color: #d4a853;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -16,7 +18,7 @@ body {
     position: relative;
 }
 
-/* Atmospheric background effects */
+/* Starry night sky effect */
 body::before {
     content: '';
     position: absolute;
@@ -25,34 +27,55 @@ body::before {
     right: 0;
     bottom: 0;
     background-image:
-        radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(70, 130, 180, 0.08) 0%, transparent 50%);
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(2px 2px at 130px 80px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 160px 120px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(2px 2px at 200px 50px, rgba(255, 255, 255, 0.25), transparent),
+        radial-gradient(1px 1px at 250px 90px, rgba(255, 255, 255, 0.35), transparent),
+        radial-gradient(2px 2px at 300px 130px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 350px 60px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(2px 2px at 400px 100px, rgba(255, 255, 255, 0.25), transparent);
+    background-size: 400px 200px;
     pointer-events: none;
-    animation: atmosphericShift 20s ease-in-out infinite;
+    animation: twinkle 8s ease-in-out infinite;
 }
 
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Aurora borealis effect */
 body::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background:
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(0, 0, 0, 0.05) 2px,
-            rgba(0, 0, 0, 0.05) 4px
-        );
+    height: 40%;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(90, 154, 171, 0.03) 30%,
+        rgba(124, 184, 201, 0.05) 50%,
+        rgba(90, 154, 171, 0.03) 70%,
+        transparent 100%
+    );
     pointer-events: none;
-    opacity: 0.3;
+    animation: aurora 15s ease-in-out infinite;
 }
 
-@keyframes atmosphericShift {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
+@keyframes aurora {
+    0%, 100% {
+        opacity: 0.4;
+        transform: translateX(-10%);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(10%);
+    }
 }
 
 .background-layer {
@@ -63,41 +86,60 @@ body::after {
     pointer-events: none;
 }
 
-/* Cannon smoke effects (naval warfare) */
-.cannon-smoke {
+/* Misty fog effects (Valheim style) */
+.fog {
     position: absolute;
-    width: 300px;
+    width: 500px;
     height: 300px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(100, 100, 100, 0.15) 0%, transparent 70%);
-    filter: blur(40px);
-    animation: smokeRise 8s ease-in-out infinite;
+    background: radial-gradient(circle, rgba(124, 184, 201, 0.08) 0%, transparent 70%);
+    filter: blur(60px);
+    animation: fogDrift 12s ease-in-out infinite;
 }
 
-.smoke-left {
+.fog-left {
     bottom: -100px;
-    left: -50px;
+    left: -150px;
     animation-delay: 0s;
 }
 
-.smoke-right {
+.fog-right {
     bottom: -100px;
-    right: -50px;
-    animation-delay: 4s;
+    right: -150px;
+    animation-delay: 6s;
 }
 
-@keyframes smokeRise {
+@keyframes fogDrift {
     0% {
-        transform: translateY(0) scale(1);
-        opacity: 0;
-    }
-    50% {
+        transform: translateY(0) translateX(0) scale(1);
         opacity: 0.3;
     }
+    50% {
+        opacity: 0.6;
+    }
     100% {
-        transform: translateY(-400px) scale(1.5);
+        transform: translateY(-200px) translateX(50px) scale(1.3);
         opacity: 0;
     }
+}
+
+/* Floating particles (embers/dust) */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255, 157, 58, 0.6), transparent),
+        radial-gradient(1px 1px at 30% 60%, rgba(255, 157, 58, 0.4), transparent),
+        radial-gradient(1px 1px at 50% 40%, rgba(255, 157, 58, 0.5), transparent),
+        radial-gradient(1px 1px at 70% 80%, rgba(255, 157, 58, 0.3), transparent),
+        radial-gradient(1px 1px at 90% 30%, rgba(255, 157, 58, 0.6), transparent);
+    animation: particleFloat 20s linear infinite;
+}
+
+@keyframes particleFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100vh); }
 }
 
 .container {
@@ -105,131 +147,157 @@ body::after {
     position: relative;
     z-index: 1;
     padding: 60px 50px;
-    background: linear-gradient(145deg, rgba(40, 35, 28, 0.95), rgba(30, 25, 20, 0.95));
-    border: 3px solid;
-    border-image: linear-gradient(135deg, #8b7355, #d4af37, #4682b4, #8b7355) 1;
+    background: linear-gradient(145deg, rgba(18, 24, 32, 0.95), rgba(10, 13, 18, 0.98));
+    border: 4px solid;
+    border-image: linear-gradient(135deg, #4a3728, #d4a853, #7cb8c9, #4a3728) 1;
     box-shadow:
-        0 0 40px rgba(212, 175, 55, 0.3),
-        0 0 80px rgba(70, 130, 180, 0.2),
-        inset 0 0 60px rgba(0, 0, 0, 0.5),
-        inset 0 2px 1px rgba(255, 255, 255, 0.1);
+        0 0 60px rgba(212, 168, 83, 0.2),
+        0 0 100px rgba(124, 184, 201, 0.1),
+        inset 0 0 80px rgba(0, 0, 0, 0.6),
+        inset 0 2px 1px rgba(212, 168, 83, 0.1);
     position: relative;
     max-width: 1100px;
 }
 
-/* Tactical corners (ARMA 3 style) */
-.tactical-corners .corner {
+/* Wood-carved corner decorations */
+.wood-corners .corner {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    border: 2px solid #d4af37;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #6b4d3a;
 }
 
-.tactical-corners .corner.top-left {
-    top: 10px;
-    left: 10px;
+.wood-corners .corner.top-left {
+    top: 12px;
+    left: 12px;
     border-right: none;
     border-bottom: none;
 }
 
-.tactical-corners .corner.top-right {
-    top: 10px;
-    right: 10px;
+.wood-corners .corner.top-right {
+    top: 12px;
+    right: 12px;
     border-left: none;
     border-bottom: none;
 }
 
-.tactical-corners .corner.bottom-left {
-    bottom: 10px;
-    left: 10px;
+.wood-corners .corner.bottom-left {
+    bottom: 12px;
+    left: 12px;
     border-right: none;
     border-top: none;
 }
 
-.tactical-corners .corner.bottom-right {
-    bottom: 10px;
-    right: 10px;
+.wood-corners .corner.bottom-right {
+    bottom: 12px;
+    right: 12px;
     border-left: none;
     border-top: none;
 }
 
-/* Title section with medieval/battle theme */
+/* Title section with Norse theme */
 .title-wrapper {
     position: relative;
     margin-bottom: 30px;
 }
 
-.shield-emblem {
-    width: 80px;
-    height: 90px;
-    margin: 0 auto 20px;
-    background: linear-gradient(145deg, #6b5742, #4a3f32);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 2px solid #d4af37;
+/* Viking shield emblem */
+.viking-emblem {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 25px;
+    background: radial-gradient(circle, #4a3728 0%, #2a1f18 100%);
+    border-radius: 50%;
+    border: 4px solid #d4a853;
     box-shadow:
-        0 4px 8px rgba(0, 0, 0, 0.5),
-        inset 0 2px 4px rgba(212, 175, 55, 0.3);
+        0 6px 12px rgba(0, 0, 0, 0.6),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.5),
+        inset 0 4px 8px rgba(212, 168, 83, 0.2),
+        0 0 30px rgba(212, 168, 83, 0.3);
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.shield-emblem::after {
-    content: '⚔';
+/* Triquetra/Valknut rune symbol */
+.viking-emblem::before {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    color: #d4af37;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    width: 50px;
+    height: 50px;
+    border: 3px solid #d4a853;
+    transform: rotate(0deg);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.viking-emblem::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #d4a853;
+    transform: rotate(180deg) translateY(15px);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.rune-symbol {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #d4a853;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(212, 168, 83, 0.8);
 }
 
 .title {
     font-size: 4.5rem;
-    font-weight: bold;
+    font-weight: 900;
     text-transform: uppercase;
     position: relative;
-    color: #d4af37;
-    letter-spacing: 12px;
+    color: #d4a853;
+    letter-spacing: 10px;
     text-shadow:
-        2px 2px 4px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(212, 175, 55, 0.6),
-        0 0 40px rgba(212, 175, 55, 0.4);
+        3px 3px 6px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(212, 168, 83, 0.5),
+        0 0 60px rgba(212, 168, 83, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
-    font-family: 'Georgia', serif;
-    animation: titleGlow 3s ease-in-out infinite;
+    gap: 8px;
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    animation: runeGlow 4s ease-in-out infinite;
 }
 
 .title-main {
     font-size: 4.5rem;
-    background: linear-gradient(180deg, #f4e4c1, #d4af37, #8b7355);
+    background: linear-gradient(180deg, #f4e4c1, #d4a853, #8b6914);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .title-year {
-    font-size: 2.5rem;
-    color: #4682b4;
-    letter-spacing: 8px;
+    font-size: 2rem;
+    color: #7cb8c9;
+    letter-spacing: 12px;
+    font-family: 'Cinzel', serif;
     text-shadow:
         2px 2px 4px rgba(0, 0, 0, 0.8),
-        0 0 15px rgba(70, 130, 180, 0.8);
+        0 0 20px rgba(124, 184, 201, 0.6);
 }
 
-@keyframes titleGlow {
+@keyframes runeGlow {
     0%, 100% {
-        filter: brightness(1) drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+        filter: brightness(1) drop-shadow(0 0 15px rgba(212, 168, 83, 0.4));
     }
     50% {
-        filter: brightness(1.2) drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+        filter: brightness(1.15) drop-shadow(0 0 25px rgba(212, 168, 83, 0.7));
     }
 }
 
-/* Crossed swords decoration (Mordhau) */
-.crossed-swords {
+/* Crossed Viking Axes */
+.crossed-axes {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -237,86 +305,108 @@ body::after {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    opacity: 0.15;
+    z-index: -1;
 }
 
-.sword {
+.viking-axe {
     position: absolute;
-    width: 200px;
-    height: 6px;
-    background: linear-gradient(90deg, #4a4a4a, #888888, #4a4a4a);
     top: 50%;
+    opacity: 0.12;
 }
 
-.sword::before {
+.axe-handle {
+    width: 160px;
+    height: 10px;
+    background: linear-gradient(180deg, #5a4a3a, #3d3028, #5a4a3a);
+    border-radius: 3px;
+    position: relative;
+    box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Handle grip wrapping */
+.axe-handle::before {
     content: '';
     position: absolute;
-    left: -30px;
-    top: -10px;
+    left: 10px;
+    top: 0;
     width: 30px;
-    height: 26px;
-    background: linear-gradient(145deg, #6b6b6b, #4a4a4a);
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 4px,
+        rgba(74, 55, 40, 0.8) 4px,
+        rgba(74, 55, 40, 0.8) 6px
+    );
+    border-radius: 3px;
+}
+
+/* Handle end cap */
+.axe-handle::after {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: -3px;
+    width: 12px;
+    height: 16px;
+    background: linear-gradient(180deg, #4a3828, #3d3028);
+    border-radius: 3px;
+}
+
+.axe-head {
+    position: absolute;
+    right: -25px;
+    top: -35px;
+    width: 50px;
+    height: 80px;
+    background: linear-gradient(135deg, #6a6a6a, #4a4a4a, #3a3a3a);
+    clip-path: polygon(
+        30% 0%,
+        100% 15%,
+        100% 50%,
+        85% 100%,
+        15% 100%,
+        0% 60%,
+        0% 40%
+    );
+    box-shadow:
+        inset 2px 0 4px rgba(255, 255, 255, 0.2),
+        inset -2px 0 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Axe blade edge highlight */
+.axe-head::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10%;
+    width: 4px;
+    height: 80%;
+    background: linear-gradient(180deg, transparent, rgba(200, 200, 200, 0.6), transparent);
     border-radius: 2px;
 }
 
-.sword-left {
-    left: 10%;
-    transform: rotate(-45deg);
+/* Axe head hole/socket */
+.axe-head::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 20px;
+    background: rgba(30, 25, 20, 0.8);
+    border-radius: 2px;
 }
 
-.sword-right {
-    right: 10%;
-    transform: rotate(45deg);
+.axe-left {
+    left: 8%;
+    transform: translateY(-50%) rotate(-45deg);
 }
 
-/* Games banner */
-.games-banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.game-tag {
-    padding: 8px 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border: 2px solid;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-    font-family: 'Courier New', monospace;
-    transition: all 0.3s ease;
-}
-
-.game-tag.naval {
-    background: linear-gradient(135deg, rgba(70, 130, 180, 0.3), rgba(30, 80, 120, 0.3));
-    border-color: #4682b4;
-    color: #87ceeb;
-}
-
-.game-tag.medieval {
-    background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(101, 67, 33, 0.3));
-    border-color: #8b4513;
-    color: #cd853f;
-}
-
-.game-tag.tactical {
-    background: linear-gradient(135deg, rgba(85, 107, 47, 0.3), rgba(60, 80, 30, 0.3));
-    border-color: #556b2f;
-    color: #9acd32;
-}
-
-.game-tag:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-.separator-dot {
-    color: #d4af37;
-    font-size: 1.5rem;
-    opacity: 0.6;
+.axe-right {
+    right: 8%;
+    transform: translateY(-50%) rotate(45deg) scaleX(-1);
 }
 
 /* Countdown section */
@@ -330,92 +420,135 @@ body::after {
 }
 
 .countdown-box {
-    background: linear-gradient(145deg, rgba(20, 18, 15, 0.9), rgba(35, 30, 25, 0.9));
-    border: 2px solid #8b7355;
+    background: linear-gradient(145deg, rgba(26, 20, 16, 0.95), rgba(18, 14, 12, 0.95));
+    border: 3px solid #6b4d3a;
     padding: 25px 35px;
     min-width: 140px;
     position: relative;
     box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.6),
-        inset 0 0 20px rgba(212, 175, 55, 0.1),
-        0 0 30px rgba(212, 175, 55, 0.2);
+        0 6px 20px rgba(0, 0, 0, 0.7),
+        inset 0 0 30px rgba(212, 168, 83, 0.08),
+        0 0 40px rgba(212, 168, 83, 0.15);
     transition: all 0.3s ease;
     clip-path: polygon(
-        10px 0, calc(100% - 10px) 0, 100% 10px,
-        100% calc(100% - 10px), calc(100% - 10px) 100%,
-        10px 100%, 0 calc(100% - 10px), 0 10px
+        15px 0, calc(100% - 15px) 0, 100% 15px,
+        100% calc(100% - 15px), calc(100% - 15px) 100%,
+        15px 100%, 0 calc(100% - 15px), 0 15px
     );
 }
 
 .countdown-box::before {
     content: '';
     position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px solid rgba(212, 168, 83, 0.2);
     pointer-events: none;
     clip-path: polygon(
-        8px 0, calc(100% - 8px) 0, 100% 8px,
-        100% calc(100% - 8px), calc(100% - 8px) 100%,
-        8px 100%, 0 calc(100% - 8px), 0 8px
+        12px 0, calc(100% - 12px) 0, 100% 12px,
+        100% calc(100% - 12px), calc(100% - 12px) 100%,
+        12px 100%, 0 calc(100% - 12px), 0 12px
     );
 }
 
 .countdown-box:hover {
-    transform: translateY(-8px);
-    border-color: #d4af37;
+    transform: translateY(-10px);
+    border-color: #d4a853;
     box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.8),
-        inset 0 0 30px rgba(212, 175, 55, 0.2),
-        0 0 50px rgba(212, 175, 55, 0.4);
+        0 12px 35px rgba(0, 0, 0, 0.9),
+        inset 0 0 40px rgba(212, 168, 83, 0.15),
+        0 0 60px rgba(212, 168, 83, 0.3),
+        0 0 80px rgba(255, 157, 58, 0.2);
 }
 
-.tactical-line {
+/* Rune decoration line */
+.rune-line {
     position: absolute;
-    bottom: 8px;
-    left: 10%;
-    right: 10%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #4682b4, transparent);
-    opacity: 0.6;
+    bottom: 10px;
+    left: 15%;
+    right: 15%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #d4a853, transparent);
+    opacity: 0.5;
+}
+
+.rune-line::before,
+.rune-line::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #d4a853;
+    transform: rotate(45deg);
+    top: -1.5px;
+}
+
+.rune-line::before {
+    left: 0;
+}
+
+.rune-line::after {
+    right: 0;
 }
 
 .time-value {
     font-size: 4.5rem;
-    font-weight: bold;
-    background: linear-gradient(180deg, #f4e4c1, #d4af37, #8b7355);
+    font-weight: 700;
+    background: linear-gradient(180deg, #f4e4c1, #d4a853, #8b6914);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-    font-family: 'Georgia', serif;
+    font-family: 'Cinzel', serif;
     line-height: 1;
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(212, 168, 83, 0.4));
 }
 
 .time-label {
     font-size: 0.85rem;
-    color: #d4af37;
+    color: #7cb8c9;
     margin-top: 12px;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     opacity: 0.9;
-    font-family: 'Courier New', monospace;
-    font-weight: bold;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(124, 184, 201, 0.5);
 }
 
 .separator {
     font-size: 4rem;
-    color: #8b7355;
+    color: #d4a853;
     font-weight: bold;
-    animation: separatorPulse 2s ease-in-out infinite;
-    text-shadow: 0 0 15px rgba(139, 115, 85, 0.6);
+    animation: firePulse 2s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 157, 58, 0.6);
 }
 
-@keyframes separatorPulse {
+.separator::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #d4a853;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    box-shadow: 0 0 10px rgba(255, 157, 58, 0.8);
+}
+
+.separator::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #d4a853;
+    border-radius: 50%;
+    margin: 10px auto 0;
+    box-shadow: 0 0 10px rgba(255, 157, 58, 0.8);
+}
+
+@keyframes firePulse {
     0%, 100% {
-        opacity: 0.5;
+        opacity: 0.6;
         transform: scale(1);
     }
     50% {
@@ -430,59 +563,86 @@ body::after {
 }
 
 .event-date {
-    font-size: 1.6rem;
-    color: #d4af37;
-    margin-bottom: 20px;
-    letter-spacing: 3px;
-    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    color: #d4a853;
+    margin-bottom: 25px;
+    letter-spacing: 4px;
+    font-family: 'Cinzel', serif;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
+/* Crossed swords icon */
 .date-icon {
-    font-size: 1.8rem;
-    animation: iconRotate 4s linear infinite;
     display: inline-block;
-}
-
-@keyframes iconRotate {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-10deg); }
-    75% { transform: rotate(10deg); }
+    font-size: 1.4rem;
+    color: #d4a853;
+    text-shadow: 0 0 10px rgba(212, 168, 83, 0.6);
 }
 
 .tagline {
-    font-size: 1.4rem;
-    color: #cd853f;
-    letter-spacing: 5px;
-    font-weight: bold;
-    font-family: 'Courier New', monospace;
-    animation: battlePulse 2.5s ease-in-out infinite;
+    font-size: 1.3rem;
+    color: #ff9d3a;
+    letter-spacing: 6px;
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+    animation: odinCall 3s ease-in-out infinite;
     text-shadow:
-        0 0 10px rgba(205, 133, 63, 0.8),
-        0 2px 4px rgba(0, 0, 0, 0.8);
-    border: 2px solid #8b4513;
-    padding: 10px 30px;
+        0 0 15px rgba(255, 157, 58, 0.8),
+        0 0 30px rgba(255, 157, 58, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.9);
+    border: 2px solid #6b4d3a;
+    padding: 12px 35px;
     display: inline-block;
-    background: linear-gradient(135deg, rgba(139, 69, 19, 0.2), rgba(101, 67, 33, 0.2));
+    background: linear-gradient(135deg, rgba(74, 55, 40, 0.4), rgba(42, 31, 24, 0.4));
+    position: relative;
 }
 
-@keyframes battlePulse {
+.tagline::before,
+.tagline::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #d4a853;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tagline::before {
+    left: 10px;
+}
+
+.tagline::after {
+    right: 10px;
+}
+
+@keyframes odinCall {
     0%, 100% {
-        opacity: 0.8;
+        opacity: 0.85;
         transform: scale(1);
+        text-shadow:
+            0 0 15px rgba(255, 157, 58, 0.6),
+            0 0 30px rgba(255, 157, 58, 0.4),
+            0 2px 4px rgba(0, 0, 0, 0.9);
     }
     50% {
         opacity: 1;
-        transform: scale(1.05);
+        transform: scale(1.03);
+        text-shadow:
+            0 0 20px rgba(255, 157, 58, 1),
+            0 0 40px rgba(255, 157, 58, 0.7),
+            0 0 60px rgba(255, 157, 58, 0.4),
+            0 2px 4px rgba(0, 0, 0, 0.9);
     }
 }
 
-/* Battle elements */
-.battle-elements {
+/* Viking/Norse elements */
+.viking-elements {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -491,32 +651,34 @@ body::after {
     pointer-events: none;
 }
 
-.anchor {
+/* Viking Runes */
+.rune {
     position: absolute;
     font-size: 3rem;
-    color: #4682b4;
-    opacity: 0.3;
-    text-shadow: 0 0 20px rgba(70, 130, 180, 0.6);
-    animation: anchorSway 4s ease-in-out infinite;
+    color: #d4a853;
+    opacity: 0.4;
+    text-shadow: 0 0 20px rgba(212, 168, 83, 0.6);
+    animation: runeBounce 4s ease-in-out infinite;
+    font-family: serif;
 }
 
-.anchor-left {
-    bottom: 20px;
-    left: 30px;
+.rune-left {
+    bottom: 25px;
+    left: 35px;
 }
 
-.anchor-right {
-    bottom: 20px;
-    right: 30px;
+.rune-right {
+    bottom: 25px;
+    right: 35px;
     animation-delay: 2s;
 }
 
-@keyframes anchorSway {
+@keyframes runeBounce {
     0%, 100% {
-        transform: rotate(-5deg) translateY(0);
+        transform: translateY(0);
     }
     50% {
-        transform: rotate(5deg) translateY(-10px);
+        transform: translateY(-15px);
     }
 }
 
@@ -532,7 +694,7 @@ body::after {
     }
 
     .title-year {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     .countdown-box {
@@ -542,6 +704,11 @@ body::after {
 
     .time-value {
         font-size: 3.5rem;
+    }
+
+    .viking-emblem {
+        width: 80px;
+        height: 80px;
     }
 }
 
@@ -556,27 +723,19 @@ body::after {
     }
 
     .title-year {
-        font-size: 1.5rem;
-        letter-spacing: 4px;
+        font-size: 1.3rem;
+        letter-spacing: 6px;
     }
 
-    .shield-emblem {
-        width: 60px;
+    .viking-emblem {
+        width: 70px;
         height: 70px;
     }
 
-    .shield-emblem::after {
-        font-size: 1.5rem;
-    }
-
-    .games-banner {
-        gap: 10px;
-    }
-
-    .game-tag {
-        font-size: 0.75rem;
-        padding: 6px 15px;
-        letter-spacing: 1px;
+    .viking-emblem::before,
+    .viking-emblem::after {
+        width: 35px;
+        height: 35px;
     }
 
     .countdown-container {
@@ -601,30 +760,55 @@ body::after {
         font-size: 1.8rem;
     }
 
+    .separator::before,
+    .separator::after {
+        width: 5px;
+        height: 5px;
+        margin: 5px auto;
+    }
+
     .event-date {
         font-size: 1.2rem;
         letter-spacing: 2px;
-        flex-direction: row;
         gap: 10px;
-        flex-wrap: wrap;
     }
 
     .date-icon {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     .tagline {
         font-size: 1rem;
         letter-spacing: 3px;
-        padding: 8px 20px;
+        padding: 10px 25px;
     }
 
-    .anchor {
+    .rune {
         font-size: 2rem;
     }
 
-    .sword {
+    .viking-axe {
+        opacity: 0.08;
+    }
+
+    .axe-handle {
         width: 120px;
+        height: 8px;
+    }
+
+    .axe-head {
+        width: 40px;
+        height: 65px;
+        right: -20px;
+        top: -28px;
+    }
+
+    .axe-left {
+        left: 3%;
+    }
+
+    .axe-right {
+        right: 3%;
     }
 }
 
@@ -634,22 +818,30 @@ body::after {
     }
 
     .title-main {
-        font-size: 2rem;
+        font-size: 1.8rem;
         letter-spacing: 4px;
     }
 
     .title-year {
-        font-size: 1.2rem;
-        letter-spacing: 3px;
-    }
-
-    .game-tag {
-        font-size: 0.65rem;
-        padding: 5px 12px;
-    }
-
-    .separator-dot {
         font-size: 1rem;
+        letter-spacing: 4px;
+    }
+
+    .viking-emblem {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+
+    .viking-emblem::before,
+    .viking-emblem::after {
+        width: 28px;
+        height: 28px;
+    }
+
+    .rune-symbol {
+        width: 14px;
+        height: 14px;
     }
 
     .countdown-container {
@@ -675,8 +867,37 @@ body::after {
         font-size: 1.5rem;
     }
 
+    .event-date {
+        font-size: 1rem;
+        flex-wrap: wrap;
+    }
+
     .tagline {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         letter-spacing: 2px;
+        padding: 8px 20px;
+    }
+
+    .tagline::before,
+    .tagline::after {
+        width: 6px;
+        height: 6px;
+    }
+
+    .rune {
+        font-size: 1.5rem;
+        bottom: 15px;
+    }
+
+    .rune-left {
+        left: 15px;
+    }
+
+    .rune-right {
+        right: 15px;
+    }
+
+    .crossed-axes {
+        display: none;
     }
 }
