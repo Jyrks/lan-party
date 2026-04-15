@@ -47,7 +47,7 @@ body::before {
     50% { opacity: 1; }
 }
 
-/* Aurora borealis effect */
+/* Spring aurora effect */
 body::after {
     content: '';
     position: absolute;
@@ -58,9 +58,9 @@ body::after {
     background: linear-gradient(
         180deg,
         transparent 0%,
-        rgba(90, 154, 171, 0.03) 30%,
-        rgba(124, 184, 201, 0.05) 50%,
-        rgba(90, 154, 171, 0.03) 70%,
+        rgba(157, 214, 122, 0.04) 25%,
+        rgba(248, 181, 209, 0.06) 50%,
+        rgba(157, 214, 122, 0.04) 75%,
         transparent 100%
     );
     pointer-events: none;
@@ -92,7 +92,7 @@ body::after {
     width: 500px;
     height: 300px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(124, 184, 201, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(248, 181, 209, 0.1) 0%, rgba(157, 214, 122, 0.06) 50%, transparent 70%);
     filter: blur(60px);
     animation: fogDrift 12s ease-in-out infinite;
 }
@@ -123,23 +123,27 @@ body::after {
     }
 }
 
-/* Floating particles (embers/dust) */
+/* Falling cherry blossom petals */
 .particles {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 200%;
+    top: -100%;
     background-image:
-        radial-gradient(1px 1px at 10% 20%, rgba(255, 157, 58, 0.6), transparent),
-        radial-gradient(1px 1px at 30% 60%, rgba(255, 157, 58, 0.4), transparent),
-        radial-gradient(1px 1px at 50% 40%, rgba(255, 157, 58, 0.5), transparent),
-        radial-gradient(1px 1px at 70% 80%, rgba(255, 157, 58, 0.3), transparent),
-        radial-gradient(1px 1px at 90% 30%, rgba(255, 157, 58, 0.6), transparent);
-    animation: particleFloat 20s linear infinite;
+        radial-gradient(2px 2px at 10% 20%, rgba(248, 181, 209, 0.7), transparent),
+        radial-gradient(2px 2px at 30% 60%, rgba(255, 200, 220, 0.5), transparent),
+        radial-gradient(2px 2px at 50% 40%, rgba(248, 181, 209, 0.6), transparent),
+        radial-gradient(2px 2px at 70% 80%, rgba(157, 214, 122, 0.5), transparent),
+        radial-gradient(2px 2px at 90% 30%, rgba(255, 200, 220, 0.6), transparent),
+        radial-gradient(1px 1px at 15% 85%, rgba(157, 214, 122, 0.6), transparent),
+        radial-gradient(2px 2px at 80% 15%, rgba(248, 181, 209, 0.5), transparent),
+        radial-gradient(1px 1px at 45% 75%, rgba(255, 200, 220, 0.7), transparent);
+    animation: particleFloat 25s linear infinite;
 }
 
 @keyframes particleFloat {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100vh); }
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
 }
 
 .container {
@@ -149,10 +153,11 @@ body::after {
     padding: 60px 50px;
     background: linear-gradient(145deg, rgba(18, 24, 32, 0.95), rgba(10, 13, 18, 0.98));
     border: 4px solid;
-    border-image: linear-gradient(135deg, #4a3728, #d4a853, #7cb8c9, #4a3728) 1;
+    border-image: linear-gradient(135deg, #4a3728, #d4a853, #9dd67a, #f8b5d1, #4a3728) 1;
     box-shadow:
         0 0 60px rgba(212, 168, 83, 0.2),
-        0 0 100px rgba(124, 184, 201, 0.1),
+        0 0 100px rgba(157, 214, 122, 0.12),
+        0 0 120px rgba(248, 181, 209, 0.08),
         inset 0 0 80px rgba(0, 0, 0, 0.6),
         inset 0 2px 1px rgba(212, 168, 83, 0.1);
     position: relative;
@@ -279,12 +284,13 @@ body::after {
 
 .title-year {
     font-size: 2rem;
-    color: #7cb8c9;
+    color: #9dd67a;
     letter-spacing: 12px;
     font-family: 'Cinzel', serif;
     text-shadow:
         2px 2px 4px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(124, 184, 201, 0.6);
+        0 0 20px rgba(157, 214, 122, 0.7),
+        0 0 40px rgba(248, 181, 209, 0.3);
 }
 
 @keyframes runeGlow {
@@ -507,13 +513,13 @@ body::after {
 
 .time-label {
     font-size: 0.85rem;
-    color: #7cb8c9;
+    color: #9dd67a;
     margin-top: 12px;
     letter-spacing: 4px;
     opacity: 0.9;
     font-family: 'Cinzel', serif;
     font-weight: 700;
-    text-shadow: 0 0 10px rgba(124, 184, 201, 0.5);
+    text-shadow: 0 0 10px rgba(157, 214, 122, 0.6);
 }
 
 .separator {
@@ -585,14 +591,14 @@ body::after {
 
 .tagline {
     font-size: 1.3rem;
-    color: #ff9d3a;
+    color: #f8b5d1;
     letter-spacing: 6px;
     font-weight: 700;
     font-family: 'Cinzel', serif;
     animation: odinCall 3s ease-in-out infinite;
     text-shadow:
-        0 0 15px rgba(255, 157, 58, 0.8),
-        0 0 30px rgba(255, 157, 58, 0.5),
+        0 0 15px rgba(248, 181, 209, 0.85),
+        0 0 30px rgba(157, 214, 122, 0.5),
         0 2px 4px rgba(0, 0, 0, 0.9);
     border: 2px solid #6b4d3a;
     padding: 12px 35px;
@@ -626,17 +632,17 @@ body::after {
         opacity: 0.85;
         transform: scale(1);
         text-shadow:
-            0 0 15px rgba(255, 157, 58, 0.6),
-            0 0 30px rgba(255, 157, 58, 0.4),
+            0 0 15px rgba(248, 181, 209, 0.7),
+            0 0 30px rgba(157, 214, 122, 0.4),
             0 2px 4px rgba(0, 0, 0, 0.9);
     }
     50% {
         opacity: 1;
         transform: scale(1.03);
         text-shadow:
-            0 0 20px rgba(255, 157, 58, 1),
-            0 0 40px rgba(255, 157, 58, 0.7),
-            0 0 60px rgba(255, 157, 58, 0.4),
+            0 0 20px rgba(248, 181, 209, 1),
+            0 0 40px rgba(248, 181, 209, 0.7),
+            0 0 60px rgba(157, 214, 122, 0.5),
             0 2px 4px rgba(0, 0, 0, 0.9);
     }
 }
