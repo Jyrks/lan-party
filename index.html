@@ -7,81 +7,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-layer">
-        <div class="fog fog-left"></div>
-        <div class="fog fog-right"></div>
-        <div class="particles"></div>
-    </div>
-
-    <div class="container">
-        <div class="wood-corners">
-            <div class="corner top-left"></div>
-            <div class="corner top-right"></div>
-            <div class="corner bottom-left"></div>
-            <div class="corner bottom-right"></div>
-        </div>
-
-        <div class="title-wrapper">
-            <div class="viking-emblem">
-                <span class="rune-symbol"></span>
+    <div class="t8-root">
+        <div class="t8-stars"></div>
+        <div class="t8-hud">
+            <div class="t8-topbar">
+                <span>MISSION&nbsp;LAN-PARTY-26</span>
+                <span class="t8-rec">&#9679;&nbsp;REC</span>
+                <span>FLIGHT DIR:&nbsp;<b>GO</b></span>
             </div>
-            <h1 class="title" data-text="LAN PARTY 2026">
-                <span class="title-main">LAN PARTY</span>
-                <span class="title-year">2026 Q4</span>
-            </h1>
-            <div class="crossed-axes">
-                <div class="viking-axe axe-left">
-                    <div class="axe-handle"></div>
-                    <div class="axe-head"></div>
-                </div>
-                <div class="viking-axe axe-right">
-                    <div class="axe-handle"></div>
-                    <div class="axe-head"></div>
-                </div>
+            <div class="t8-orbit">
+                <div class="t8-ring"></div>
+                <div class="t8-ring t8-ring2"></div>
+                <div class="t8-planet"></div>
+                <div class="t8-sat"></div>
             </div>
-        </div>
-
-        <div class="countdown-container">
-            <div class="countdown-box">
-                <div class="time-value" id="days">00</div>
-                <div class="time-label">DAYS</div>
-                <div class="rune-line"></div>
+            <div class="t8-tminus">T&nbsp;&minus;&nbsp;MINUS</div>
+            <div class="t8-readout">
+                <div class="t8-seg"><span class="t8-num" data-field="days">00</span><span class="t8-lbl">DAYS</span></div>
+                <div class="t8-seg"><span class="t8-num" data-field="hours">00</span><span class="t8-lbl">HRS</span></div>
+                <div class="t8-seg"><span class="t8-num" data-field="minutes">00</span><span class="t8-lbl">MIN</span></div>
+                <div class="t8-seg"><span class="t8-num" data-field="seconds">00</span><span class="t8-lbl">SEC</span></div>
             </div>
-            <div class="separator"></div>
-            <div class="countdown-box">
-                <div class="time-value" id="hours">00</div>
-                <div class="time-label">HOURS</div>
-                <div class="rune-line"></div>
+            <div class="t8-window">
+                <span class="t8-wkey">LAUNCH WINDOW</span>
+                <span class="t8-wval">OCT 10, 2026 &nbsp;&middot;&nbsp; 12:00 EEST &nbsp;&middot;&nbsp; Q3 LAN</span>
             </div>
-            <div class="separator"></div>
-            <div class="countdown-box">
-                <div class="time-value" id="minutes">00</div>
-                <div class="time-label">MINUTES</div>
-                <div class="rune-line"></div>
+            <div class="t8-telemetry">
+                <span>ALT&nbsp;000.0&nbsp;KM</span>
+                <span>VEL&nbsp;0000&nbsp;M/S</span>
+                <span>FUEL&nbsp;100%</span>
+                <span>ALL SYS&nbsp;<b>NOMINAL</b></span>
             </div>
-            <div class="separator"></div>
-            <div class="countdown-box">
-                <div class="time-value" id="seconds">00</div>
-                <div class="time-label">SECONDS</div>
-                <div class="rune-line"></div>
-            </div>
-        </div>
-
-        <div class="event-info">
-            <p class="event-date">
-                <span class="date-icon">⚔</span>
-                October 10, 2026 - 12:00
-                <span class="date-icon">⚔</span>
-            </p>
-            <p class="tagline">SO IT BEGINS</p>
-        </div>
-
-        <div class="viking-elements">
-            <div class="rune rune-left">ᚠ</div>
-            <div class="rune rune-right">ᚱ</div>
+            <div class="t8-ended" data-ended>&#9664; LIFTOFF &mdash; WE HAVE LIFTOFF &#9658;</div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

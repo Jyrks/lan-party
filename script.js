@@ -1,50 +1,34 @@
-// Set the target date to October 10, 2026 at 12:00 in Europe/Tallinn timezone
-// Europe/Tallinn is UTC+2 (EET) in winter, UTC+3 (EEST) in summer
-// October 10 is before DST ends (last Sunday of October), so UTC+3
-const targetDate = new Date('2026-10-10T12:00:00+03:00');
+// Event date — October 10, 2026 at 12:00 in Europe/Tallinn.
+// Tallinn is UTC+3 (EEST) on Oct 10, before DST ends (last Sunday of October).
+const TARGET = new Date('2026-10-10T12:00:00+03:00');
 
-let countdownEnded = false;
-
-function updateCountdown() {
-    const now = new Date();
-    const difference = targetDate - now;
-
-    if (difference <= 0) {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-
-        if (!countdownEnded) {
-            countdownEnded = true;
-
-            const tagline = document.querySelector('.tagline');
-            tagline.textContent = 'LAN PARTY IS LIVE!';
-            tagline.style.animation = 'odinCall 0.5s ease-in-out infinite';
-
-            document.querySelectorAll('.countdown-box').forEach(box => {
-                box.style.borderColor = '#d4a853';
-                box.style.animation = 'runeGlow 0.8s ease-in-out infinite';
-            });
-        }
-        return;
-    }
-
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-    document.getElementById('days').textContent = String(days).padStart(2, '0');
-    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+function pad(n) {
+    return String(n).padStart(2, '0');
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
+function getRemaining() {
+    const diff = TARGET - Date.now();
+    if (diff <= 0) {
+        return { days: 0, hours: 0, minutes: 0, seconds: 0, ended: true };
+    }
+    return {
+        days: Math.floor(diff / 86400000),
+        hours: Math.floor(diff / 3600000) % 24,
+        minutes: Math.floor(diff / 60000) % 60,
+        seconds: Math.floor(diff / 1000) % 60,
+        ended: false
+    };
+}
 
-// Staggered pulsing effect on countdown boxes
-document.querySelectorAll('.countdown-box').forEach((box, index) => {
-    box.style.animationDelay = `${index * 0.2}s`;
-});
+function render() {
+    const t = getRemaining();
+    document.querySelector('.t8-root').classList.toggle('is-ended', t.ended);
+    ['days', 'hours', 'minutes', 'seconds'].forEach(function (key) {
+        document.querySelectorAll('[data-field="' + key + '"]').forEach(function (el) {
+            el.textContent = pad(t[key]);
+        });
+    });
+}
+
+render();
+setInterval(render, 1000);
