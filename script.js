@@ -1,7 +1,7 @@
-// Set the target date to May 9, 2026 at 12:00 in Europe/Tallinn timezone
+// Set the target date to October 10, 2026 at 12:00 in Europe/Tallinn timezone
 // Europe/Tallinn is UTC+2 (EET) in winter, UTC+3 (EEST) in summer
-// May 9 is after DST change (last Sunday of March), so UTC+3
-const targetDate = new Date('2026-05-09T12:00:00+03:00');
+// October 10 is before DST ends (last Sunday of October), so UTC+3
+const targetDate = new Date('2026-10-10T12:00:00+03:00');
 
 function updateCountdown() {
     const now = new Date();

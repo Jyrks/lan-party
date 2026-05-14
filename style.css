@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Cinzel', 'Georgia', serif;
-    background: linear-gradient(180deg, #0d1210 0%, #111d18 30%, #0d1514 60%, #080d0b 100%);
+    background: linear-gradient(180deg, #1a0f0a 0%, #2d1810 30%, #1f1208 60%, #0d0805 100%);
     color: #d4a853;
     min-height: 100vh;
     display: flex;
@@ -18,7 +18,7 @@ body {
     position: relative;
 }
 
-/* Starry night sky effect */
+/* Starry autumn night effect */
 body::before {
     content: '';
     position: absolute;
@@ -27,16 +27,16 @@ body::before {
     right: 0;
     bottom: 0;
     background-image:
-        radial-gradient(2px 2px at 20px 30px, rgba(248, 220, 230, 0.3), transparent),
-        radial-gradient(2px 2px at 40px 70px, rgba(200, 230, 184, 0.25), transparent),
+        radial-gradient(2px 2px at 20px 30px, rgba(212, 168, 83, 0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(200, 100, 50, 0.25), transparent),
         radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.35), transparent),
-        radial-gradient(2px 2px at 130px 80px, rgba(248, 200, 218, 0.25), transparent),
-        radial-gradient(1px 1px at 160px 120px, rgba(200, 230, 184, 0.3), transparent),
+        radial-gradient(2px 2px at 130px 80px, rgba(180, 80, 40, 0.25), transparent),
+        radial-gradient(1px 1px at 160px 120px, rgba(212, 88, 42, 0.3), transparent),
         radial-gradient(2px 2px at 200px 50px, rgba(255, 255, 255, 0.25), transparent),
-        radial-gradient(1px 1px at 250px 90px, rgba(248, 220, 230, 0.35), transparent),
-        radial-gradient(2px 2px at 300px 130px, rgba(200, 230, 184, 0.25), transparent),
+        radial-gradient(1px 1px at 250px 90px, rgba(212, 168, 83, 0.35), transparent),
+        radial-gradient(2px 2px at 300px 130px, rgba(200, 100, 50, 0.25), transparent),
         radial-gradient(1px 1px at 350px 60px, rgba(255, 255, 255, 0.3), transparent),
-        radial-gradient(2px 2px at 400px 100px, rgba(248, 200, 218, 0.25), transparent);
+        radial-gradient(2px 2px at 400px 100px, rgba(180, 80, 40, 0.25), transparent);
     background-size: 400px 200px;
     pointer-events: none;
     animation: twinkle 8s ease-in-out infinite;
@@ -47,7 +47,7 @@ body::before {
     50% { opacity: 1; }
 }
 
-/* Spring aurora effect */
+/* Autumn glow effect */
 body::after {
     content: '';
     position: absolute;
@@ -58,9 +58,9 @@ body::after {
     background: linear-gradient(
         180deg,
         transparent 0%,
-        rgba(157, 214, 122, 0.07) 20%,
-        rgba(248, 181, 209, 0.1) 45%,
-        rgba(157, 214, 122, 0.07) 70%,
+        rgba(212, 88, 42, 0.07) 20%,
+        rgba(212, 168, 83, 0.1) 45%,
+        rgba(180, 80, 40, 0.07) 70%,
         transparent 100%
     );
     pointer-events: none;
@@ -86,13 +86,13 @@ body::after {
     pointer-events: none;
 }
 
-/* Misty fog effects (Valheim style) */
+/* Misty fog effects (autumn mist) */
 .fog {
     position: absolute;
     width: 500px;
     height: 300px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(248, 181, 209, 0.15) 0%, rgba(157, 214, 122, 0.1) 50%, transparent 70%);
+    background: radial-gradient(circle, rgba(212, 88, 42, 0.15) 0%, rgba(212, 168, 83, 0.1) 50%, transparent 70%);
     filter: blur(60px);
     animation: fogDrift 12s ease-in-out infinite;
 }
@@ -123,21 +123,21 @@ body::after {
     }
 }
 
-/* Falling cherry blossom petals */
+/* Falling autumn leaves */
 .particles {
     position: absolute;
     width: 100%;
     height: 200%;
     top: -100%;
     background-image:
-        radial-gradient(2px 2px at 10% 20%, rgba(248, 181, 209, 0.7), transparent),
-        radial-gradient(2px 2px at 30% 60%, rgba(255, 200, 220, 0.5), transparent),
-        radial-gradient(2px 2px at 50% 40%, rgba(248, 181, 209, 0.6), transparent),
-        radial-gradient(2px 2px at 70% 80%, rgba(157, 214, 122, 0.5), transparent),
-        radial-gradient(2px 2px at 90% 30%, rgba(255, 200, 220, 0.6), transparent),
-        radial-gradient(1px 1px at 15% 85%, rgba(157, 214, 122, 0.6), transparent),
-        radial-gradient(2px 2px at 80% 15%, rgba(248, 181, 209, 0.5), transparent),
-        radial-gradient(1px 1px at 45% 75%, rgba(255, 200, 220, 0.7), transparent);
+        radial-gradient(3px 3px at 10% 20%, rgba(212, 88, 42, 0.7), transparent),
+        radial-gradient(2px 2px at 30% 60%, rgba(180, 80, 40, 0.5), transparent),
+        radial-gradient(3px 3px at 50% 40%, rgba(212, 168, 83, 0.6), transparent),
+        radial-gradient(2px 2px at 70% 80%, rgba(139, 69, 19, 0.5), transparent),
+        radial-gradient(3px 3px at 90% 30%, rgba(212, 88, 42, 0.6), transparent),
+        radial-gradient(2px 2px at 15% 85%, rgba(200, 100, 50, 0.6), transparent),
+        radial-gradient(3px 3px at 80% 15%, rgba(212, 168, 83, 0.5), transparent),
+        radial-gradient(2px 2px at 45% 75%, rgba(180, 80, 40, 0.7), transparent);
     animation: particleFloat 25s linear infinite;
 }
 
@@ -151,13 +151,13 @@ body::after {
     position: relative;
     z-index: 1;
     padding: 60px 50px;
-    background: linear-gradient(145deg, rgba(16, 24, 20, 0.95), rgba(10, 15, 13, 0.98));
+    background: linear-gradient(145deg, rgba(26, 15, 10, 0.95), rgba(15, 10, 8, 0.98));
     border: 4px solid;
-    border-image: linear-gradient(135deg, #4a3728, #d4a853, #9dd67a, #f8b5d1, #4a3728) 1;
+    border-image: linear-gradient(135deg, #4a3728, #d4a853, #d4582a, #8b4513, #4a3728) 1;
     box-shadow:
         0 0 60px rgba(212, 168, 83, 0.2),
-        0 0 100px rgba(157, 214, 122, 0.12),
-        0 0 120px rgba(248, 181, 209, 0.08),
+        0 0 100px rgba(212, 88, 42, 0.12),
+        0 0 120px rgba(180, 80, 40, 0.08),
         inset 0 0 80px rgba(0, 0, 0, 0.6),
         inset 0 2px 1px rgba(212, 168, 83, 0.1);
     position: relative;
@@ -169,7 +169,7 @@ body::after {
     position: absolute;
     width: 35px;
     height: 35px;
-    border: 2px solid #4a6b45;
+    border: 2px solid #8b5a2b;
 }
 
 .wood-corners .corner.top-left {
@@ -213,12 +213,12 @@ body::after {
     margin: 0 auto 25px;
     background: radial-gradient(circle, #4a3728 0%, #2a1f18 100%);
     border-radius: 50%;
-    border: 4px solid #9dd67a;
+    border: 4px solid #d4a853;
     box-shadow:
         0 6px 12px rgba(0, 0, 0, 0.6),
         inset 0 -4px 8px rgba(0, 0, 0, 0.5),
-        inset 0 4px 8px rgba(157, 214, 122, 0.2),
-        0 0 30px rgba(157, 214, 122, 0.3);
+        inset 0 4px 8px rgba(212, 168, 83, 0.2),
+        0 0 30px rgba(212, 168, 83, 0.3);
     position: relative;
     display: flex;
     align-items: center;
@@ -231,7 +231,7 @@ body::after {
     position: absolute;
     width: 50px;
     height: 50px;
-    border: 3px solid #9dd67a;
+    border: 3px solid #d4a853;
     transform: rotate(0deg);
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
@@ -241,7 +241,7 @@ body::after {
     position: absolute;
     width: 50px;
     height: 50px;
-    border: 3px solid #f8b5d1;
+    border: 3px solid #d4582a;
     transform: rotate(180deg) translateY(15px);
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
@@ -250,9 +250,9 @@ body::after {
     position: absolute;
     width: 20px;
     height: 20px;
-    background: #f8b5d1;
+    background: #d4582a;
     border-radius: 50%;
-    box-shadow: 0 0 15px rgba(248, 181, 209, 0.8);
+    box-shadow: 0 0 15px rgba(212, 88, 42, 0.8);
 }
 
 .title {
@@ -276,7 +276,7 @@ body::after {
 
 .title-main {
     font-size: 4.5rem;
-    background: linear-gradient(180deg, #e8f5e0, #9dd67a, #5a8a42);
+    background: linear-gradient(180deg, #f5e6c8, #d4a853, #8b5a2b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -284,21 +284,21 @@ body::after {
 
 .title-year {
     font-size: 2rem;
-    color: #9dd67a;
+    color: #d4a853;
     letter-spacing: 12px;
     font-family: 'Cinzel', serif;
     text-shadow:
         2px 2px 4px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(157, 214, 122, 0.7),
-        0 0 40px rgba(248, 181, 209, 0.3);
+        0 0 20px rgba(212, 168, 83, 0.7),
+        0 0 40px rgba(212, 88, 42, 0.3);
 }
 
 @keyframes runeGlow {
     0%, 100% {
-        filter: brightness(1) drop-shadow(0 0 15px rgba(157, 214, 122, 0.4));
+        filter: brightness(1) drop-shadow(0 0 15px rgba(212, 168, 83, 0.4));
     }
     50% {
-        filter: brightness(1.15) drop-shadow(0 0 25px rgba(157, 214, 122, 0.7));
+        filter: brightness(1.15) drop-shadow(0 0 25px rgba(212, 168, 83, 0.7));
     }
 }
 
@@ -426,15 +426,15 @@ body::after {
 }
 
 .countdown-box {
-    background: linear-gradient(145deg, rgba(18, 26, 20, 0.95), rgba(12, 18, 14, 0.95));
-    border: 3px solid #4a6b45;
+    background: linear-gradient(145deg, rgba(26, 18, 14, 0.95), rgba(18, 12, 10, 0.95));
+    border: 3px solid #8b5a2b;
     padding: 25px 35px;
     min-width: 140px;
     position: relative;
     box-shadow:
         0 6px 20px rgba(0, 0, 0, 0.7),
-        inset 0 0 30px rgba(157, 214, 122, 0.08),
-        0 0 40px rgba(157, 214, 122, 0.15);
+        inset 0 0 30px rgba(212, 168, 83, 0.08),
+        0 0 40px rgba(212, 88, 42, 0.15);
     transition: all 0.3s ease;
     clip-path: polygon(
         15px 0, calc(100% - 15px) 0, 100% 15px,
@@ -450,7 +450,7 @@ body::after {
     left: 8px;
     right: 8px;
     bottom: 8px;
-    border: 1px solid rgba(157, 214, 122, 0.2);
+    border: 1px solid rgba(212, 168, 83, 0.2);
     pointer-events: none;
     clip-path: polygon(
         12px 0, calc(100% - 12px) 0, 100% 12px,
@@ -461,12 +461,12 @@ body::after {
 
 .countdown-box:hover {
     transform: translateY(-10px);
-    border-color: #9dd67a;
+    border-color: #d4a853;
     box-shadow:
         0 12px 35px rgba(0, 0, 0, 0.9),
-        inset 0 0 40px rgba(157, 214, 122, 0.15),
-        0 0 60px rgba(157, 214, 122, 0.3),
-        0 0 80px rgba(248, 181, 209, 0.2);
+        inset 0 0 40px rgba(212, 168, 83, 0.15),
+        0 0 60px rgba(212, 88, 42, 0.3),
+        0 0 80px rgba(180, 80, 40, 0.2);
 }
 
 /* Rune decoration line */
@@ -476,7 +476,7 @@ body::after {
     left: 15%;
     right: 15%;
     height: 3px;
-    background: linear-gradient(90deg, transparent, #9dd67a, transparent);
+    background: linear-gradient(90deg, transparent, #d4a853, transparent);
     opacity: 0.5;
 }
 
@@ -486,7 +486,7 @@ body::after {
     position: absolute;
     width: 6px;
     height: 6px;
-    background: #f8b5d1;
+    background: #d4582a;
     transform: rotate(45deg);
     top: -1.5px;
 }
@@ -502,32 +502,32 @@ body::after {
 .time-value {
     font-size: 4.5rem;
     font-weight: 700;
-    background: linear-gradient(180deg, #e8f5e0, #9dd67a, #5a8a42);
+    background: linear-gradient(180deg, #f5e6c8, #d4a853, #8b5a2b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-family: 'Cinzel', serif;
     line-height: 1;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(157, 214, 122, 0.5));
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(212, 168, 83, 0.5));
 }
 
 .time-label {
     font-size: 0.85rem;
-    color: #9dd67a;
+    color: #d4a853;
     margin-top: 12px;
     letter-spacing: 4px;
     opacity: 0.9;
     font-family: 'Cinzel', serif;
     font-weight: 700;
-    text-shadow: 0 0 10px rgba(157, 214, 122, 0.6);
+    text-shadow: 0 0 10px rgba(212, 168, 83, 0.6);
 }
 
 .separator {
     font-size: 4rem;
-    color: #f8b5d1;
+    color: #d4582a;
     font-weight: bold;
     animation: firePulse 2s ease-in-out infinite;
-    text-shadow: 0 0 20px rgba(248, 181, 209, 0.6);
+    text-shadow: 0 0 20px rgba(212, 88, 42, 0.6);
 }
 
 .separator::before {
@@ -535,10 +535,10 @@ body::after {
     display: block;
     width: 8px;
     height: 8px;
-    background: #f8b5d1;
+    background: #d4582a;
     border-radius: 50%;
     margin: 0 auto 10px;
-    box-shadow: 0 0 10px rgba(248, 181, 209, 0.8);
+    box-shadow: 0 0 10px rgba(212, 88, 42, 0.8);
 }
 
 .separator::after {
@@ -546,10 +546,10 @@ body::after {
     display: block;
     width: 8px;
     height: 8px;
-    background: #f8b5d1;
+    background: #d4582a;
     border-radius: 50%;
     margin: 10px auto 0;
-    box-shadow: 0 0 10px rgba(248, 181, 209, 0.8);
+    box-shadow: 0 0 10px rgba(212, 88, 42, 0.8);
 }
 
 @keyframes firePulse {
@@ -570,7 +570,7 @@ body::after {
 
 .event-date {
     font-size: 1.5rem;
-    color: #c8e6b8;
+    color: #e6d4b8;
     margin-bottom: 25px;
     letter-spacing: 4px;
     font-family: 'Cinzel', serif;
@@ -585,25 +585,25 @@ body::after {
 .date-icon {
     display: inline-block;
     font-size: 1.4rem;
-    color: #9dd67a;
-    text-shadow: 0 0 10px rgba(157, 214, 122, 0.6);
+    color: #d4a853;
+    text-shadow: 0 0 10px rgba(212, 168, 83, 0.6);
 }
 
 .tagline {
     font-size: 1.3rem;
-    color: #f8b5d1;
+    color: #d4582a;
     letter-spacing: 6px;
     font-weight: 700;
     font-family: 'Cinzel', serif;
     animation: odinCall 3s ease-in-out infinite;
     text-shadow:
-        0 0 15px rgba(248, 181, 209, 0.85),
-        0 0 30px rgba(157, 214, 122, 0.5),
+        0 0 15px rgba(212, 88, 42, 0.85),
+        0 0 30px rgba(212, 168, 83, 0.5),
         0 2px 4px rgba(0, 0, 0, 0.9);
-    border: 2px solid #4a6b45;
+    border: 2px solid #8b5a2b;
     padding: 12px 35px;
     display: inline-block;
-    background: linear-gradient(135deg, rgba(40, 74, 50, 0.4), rgba(24, 42, 30, 0.4));
+    background: linear-gradient(135deg, rgba(74, 40, 24, 0.4), rgba(42, 24, 14, 0.4));
     position: relative;
 }
 
@@ -613,7 +613,7 @@ body::after {
     position: absolute;
     width: 8px;
     height: 8px;
-    background: #f8b5d1;
+    background: #d4582a;
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
@@ -632,17 +632,17 @@ body::after {
         opacity: 0.85;
         transform: scale(1);
         text-shadow:
-            0 0 15px rgba(248, 181, 209, 0.7),
-            0 0 30px rgba(157, 214, 122, 0.4),
+            0 0 15px rgba(212, 88, 42, 0.7),
+            0 0 30px rgba(212, 168, 83, 0.4),
             0 2px 4px rgba(0, 0, 0, 0.9);
     }
     50% {
         opacity: 1;
         transform: scale(1.03);
         text-shadow:
-            0 0 20px rgba(248, 181, 209, 1),
-            0 0 40px rgba(248, 181, 209, 0.7),
-            0 0 60px rgba(157, 214, 122, 0.5),
+            0 0 20px rgba(212, 88, 42, 1),
+            0 0 40px rgba(212, 88, 42, 0.7),
+            0 0 60px rgba(212, 168, 83, 0.5),
             0 2px 4px rgba(0, 0, 0, 0.9);
     }
 }
@@ -661,9 +661,9 @@ body::after {
 .rune {
     position: absolute;
     font-size: 3rem;
-    color: #f8b5d1;
+    color: #d4582a;
     opacity: 0.4;
-    text-shadow: 0 0 20px rgba(248, 181, 209, 0.6);
+    text-shadow: 0 0 20px rgba(212, 88, 42, 0.6);
     animation: runeBounce 4s ease-in-out infinite;
     font-family: serif;
 }
