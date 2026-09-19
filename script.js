@@ -22,7 +22,7 @@ function getRemaining() {
 
 function render() {
     const t = getRemaining();
-    document.querySelector('.t8-root').classList.toggle('is-ended', t.ended);
+    document.querySelector('.s2-root').classList.toggle('is-ended', t.ended);
     ['days', 'hours', 'minutes', 'seconds'].forEach(function (key) {
         document.querySelectorAll('[data-field="' + key + '"]').forEach(function (el) {
             el.textContent = pad(t[key]);

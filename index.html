@@ -3,43 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAN Party Countdown</title>
+    <title>Smite 2 LAN — countdown</title>
+    <meta name="description" content="Countdown to the Smite 2 LAN on 10 October 2026.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="t8-root">
-        <div class="t8-stars"></div>
-        <div class="t8-hud">
-            <div class="t8-topbar">
-                <span>MISSION&nbsp;LAN-PARTY-26</span>
-                <span class="t8-rec">&#9679;&nbsp;REC</span>
-                <span>FLIGHT DIR:&nbsp;<b>GO</b></span>
-            </div>
-            <div class="t8-orbit">
-                <div class="t8-ring"></div>
-                <div class="t8-ring t8-ring2"></div>
-                <div class="t8-planet"></div>
-                <div class="t8-sat"></div>
-            </div>
-            <div class="t8-tminus">T&nbsp;&minus;&nbsp;MINUS</div>
-            <div class="t8-readout">
-                <div class="t8-seg"><span class="t8-num" data-field="days">00</span><span class="t8-lbl">DAYS</span></div>
-                <div class="t8-seg"><span class="t8-num" data-field="hours">00</span><span class="t8-lbl">HRS</span></div>
-                <div class="t8-seg"><span class="t8-num" data-field="minutes">00</span><span class="t8-lbl">MIN</span></div>
-                <div class="t8-seg"><span class="t8-num" data-field="seconds">00</span><span class="t8-lbl">SEC</span></div>
-            </div>
-            <div class="t8-window">
-                <span class="t8-wkey">LAUNCH WINDOW</span>
-                <span class="t8-wval">OCT 10, 2026 &nbsp;&middot;&nbsp; 12:00 EEST &nbsp;&middot;&nbsp; Q3 LAN</span>
-            </div>
-            <div class="t8-telemetry">
-                <span>ALT&nbsp;000.0&nbsp;KM</span>
-                <span>VEL&nbsp;0000&nbsp;M/S</span>
-                <span>FUEL&nbsp;100%</span>
-                <span>ALL SYS&nbsp;<b>NOMINAL</b></span>
-            </div>
-            <div class="t8-ended" data-ended>&#9664; LIFTOFF &mdash; WE HAVE LIFTOFF &#9658;</div>
+    <div class="s2-root">
+        <div class="s2-lane" aria-hidden="true">
+            <span class="s2-lane-band"></span>
+            <span class="s2-lane-seam"></span>
         </div>
+
+        <header class="s2-rail">
+            <span class="s2-mark">Smite 2 LAN</span>
+            <span class="s2-live"><i></i><b class="s2-live-wait">Lobby open</b><b class="s2-live-go">Match live</b></span>
+            <span class="s2-place">Tallinn</span>
+        </header>
+
+        <main class="s2-stage">
+            <h1 class="s2-head">Match starts in</h1>
+
+            <div class="s2-clock" role="timer">
+                <div class="s2-slot">
+                    <span class="s2-num" data-field="days">00</span>
+                    <span class="s2-unit">days</span>
+                </div>
+                <div class="s2-slot">
+                    <span class="s2-num" data-field="hours">00</span>
+                    <span class="s2-unit">hours</span>
+                </div>
+                <div class="s2-slot">
+                    <span class="s2-num" data-field="minutes">00</span>
+                    <span class="s2-unit">minutes</span>
+                </div>
+                <div class="s2-slot">
+                    <span class="s2-num" data-field="seconds">00</span>
+                    <span class="s2-unit">seconds</span>
+                </div>
+            </div>
+
+            <p class="s2-when">Saturday 10 October 2026, 12:00 EEST</p>
+
+            <p class="s2-ended" data-ended>The arena is open. Load in.</p>
+        </main>
+
+        <footer class="s2-lanes">
+            <span class="s2-lanes-key">Conquest 5v5</span>
+            <ul class="s2-lanes-list">
+                <li>Solo</li>
+                <li>Jungle</li>
+                <li>Mid</li>
+                <li>Support</li>
+                <li>Carry</li>
+            </ul>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>

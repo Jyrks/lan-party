@@ -1,197 +1,343 @@
-/* LAN Party Countdown — Space Mission Control theme. */
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap');
+/* Smite 2 LAN countdown — "mid lane".
+   The page is laid out on the Conquest mid lane: one diagonal running from the
+   Order base (lapis, lower left) to the Chaos base (ember, upper right). The
+   countdown sits on the lane; the flanks stay dark jungle. */
+
+:root {
+    --ink: #0a0e1a;
+    --ink-deep: #05070e;
+    --lapis: #1e3f8f;
+    --gold: #e5a833;
+    --gold-pale: #fff0c8;
+    --gold-deep: #a9761a;
+    --ember: #c4402c;
+    --malachite: #3f9e77;
+    --limestone: #efe6d4;
+    --limestone-dim: #9a957f;
+
+    --lane-angle: -18deg;
+
+    --display: 'Big Shoulders Display', 'Arial Narrow', system-ui, sans-serif;
+    --text: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+}
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
+html,
 body {
-    min-height: 100vh;
-    background: #03060d;
+    margin: 0;
+    padding: 0;
 }
 
-.t8-root {
+body {
+    min-height: 100svh;
+    background: var(--ink);
+    color: var(--limestone);
+    font-family: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+.s2-root {
     position: relative;
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px 16px;
-    font-family: 'Chakra Petch', sans-serif;
-    background: radial-gradient(ellipse at 50% 40%, #0a1426 0%, #03060d 70%);
-    color: #8fb7d9;
-}
-
-.t8-stars {
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(1px 1px at 12% 22%, #fff, transparent),
-        radial-gradient(1px 1px at 68% 12%, #cfe3ff, transparent),
-        radial-gradient(2px 2px at 84% 64%, #fff, transparent),
-        radial-gradient(1px 1px at 30% 78%, #fff, transparent),
-        radial-gradient(1px 1px at 50% 40%, #bcd6ff, transparent),
-        radial-gradient(1px 1px at 92% 30%, #fff, transparent);
-}
-
-.t8-hud {
-    position: relative;
-    z-index: 2;
-    width: min(720px, 100%);
-    padding: clamp(20px, 4vw, 36px);
-    border: 1px solid rgba(95, 200, 255, 0.35);
-    border-radius: 4px;
-    background: rgba(6, 14, 26, 0.72);
-    box-shadow: 0 0 0 1px rgba(95, 200, 255, 0.08), 0 0 60px rgba(20, 80, 140, 0.3) inset;
-}
-
-.t8-topbar {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: clamp(0.55rem, 1.7vw, 0.78rem);
-    letter-spacing: 0.12em;
-    color: #5fc8ff;
-    border-bottom: 1px solid rgba(95, 200, 255, 0.25);
-    padding-bottom: 10px;
-}
-.t8-topbar b { color: #2bff88; }
-.t8-rec {
-    color: #ff5a5a;
-    animation: t8blink 1.2s steps(1) infinite;
-}
-@keyframes t8blink { 50% { opacity: 0.25; } }
-
-.t8-orbit {
-    position: relative;
-    width: clamp(120px, 26vw, 180px);
-    aspect-ratio: 1;
-    margin: clamp(18px, 3vw, 30px) auto clamp(8px, 2vw, 16px);
-}
-.t8-ring {
-    position: absolute;
-    inset: 0;
-    border: 1px solid rgba(95, 200, 255, 0.4);
-    border-radius: 50%;
-    border-top-color: #5fc8ff;
-    animation: t8spin 6s linear infinite;
-}
-.t8-ring2 {
-    inset: 22%;
-    border-top-color: transparent;
-    border-right-color: #2bff88;
-    animation-duration: 3.4s;
-    animation-direction: reverse;
-}
-@keyframes t8spin { to { transform: rotate(360deg); } }
-.t8-planet {
-    position: absolute;
-    inset: 38%;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #6fa8ff, #1b3a8a 70%, #0a1a44);
-    box-shadow: 0 0 26px rgba(95, 168, 255, 0.6);
-}
-.t8-sat {
-    position: absolute;
-    top: -3px;
-    left: 50%;
-    width: 7px;
-    height: 7px;
-    margin-left: -3.5px;
-    background: #2bff88;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #2bff88;
-    transform-origin: 50% calc(50% + clamp(60px, 13vw, 90px));
-    animation: t8spin 4s linear infinite;
-}
-
-.t8-tminus {
-    text-align: center;
-    font-size: clamp(0.8rem, 2.6vw, 1.05rem);
-    letter-spacing: 0.4em;
-    color: #5fc8ff;
-}
-
-.t8-readout {
-    margin: clamp(10px, 2vw, 18px) 0;
+    isolation: isolate;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: clamp(6px, 1.6vw, 12px);
-}
-.t8-seg {
-    text-align: center;
-    padding: clamp(10px, 2vw, 16px) 4px;
-    background: rgba(3, 12, 24, 0.9);
-    border: 1px solid rgba(95, 200, 255, 0.3);
-}
-.t8-num {
-    display: block;
-    font-size: clamp(1.8rem, 8vw, 3.6rem);
-    font-weight: 700;
-    color: #d6f4ff;
-    line-height: 1;
-    text-shadow: 0 0 16px rgba(95, 200, 255, 0.8);
-    font-variant-numeric: tabular-nums;
-}
-.t8-lbl {
-    display: block;
-    margin-top: 6px;
-    font-size: clamp(0.5rem, 1.5vw, 0.66rem);
-    letter-spacing: 0.2em;
-    color: #5fc8ff;
+    grid-template-rows: auto 1fr auto;
+    gap: 2rem;
+    min-height: 100svh;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    overflow: hidden;
 }
 
-.t8-window {
+/* --- The lane ------------------------------------------------------------ */
+
+.s2-lane {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    background:
+        radial-gradient(120% 90% at 50% 50%, transparent 30%, var(--ink-deep) 100%);
+}
+
+.s2-lane-band,
+.s2-lane-seam {
+    position: absolute;
+    left: -40%;
+    width: 180%;
+    top: 50%;
+    rotate: var(--lane-angle);
+    translate: 0 -50%;
+}
+
+.s2-lane-band {
+    height: clamp(280px, 44vh, 540px);
+    /* Fade every edge so the rotated band never shows its own corners. */
+    -webkit-mask-image: radial-gradient(66% 64% at 50% 50%, #000 0%, #000 34%, transparent 100%);
+    mask-image: radial-gradient(66% 64% at 50% 50%, #000 0%, #000 34%, transparent 100%);
+    background:
+        radial-gradient(34% 96% at 21% 50%, color-mix(in oklab, var(--lapis) 80%, transparent) 0%, transparent 74%),
+        radial-gradient(32% 96% at 79% 50%, color-mix(in oklab, var(--ember) 62%, transparent) 0%, transparent 74%),
+        linear-gradient(to bottom, transparent 0%, color-mix(in oklab, var(--gold) 14%, transparent) 50%, transparent 100%);
+    filter: blur(8px);
+    opacity: .88;
+}
+
+.s2-lane-seam {
+    height: 1px;
+    background: linear-gradient(to right,
+            transparent 0%,
+            color-mix(in oklab, var(--lapis) 70%, white) 18%,
+            var(--gold-pale) 50%,
+            color-mix(in oklab, var(--ember) 70%, white) 82%,
+            transparent 100%);
+    /* The lane runs behind the countdown, so the seam drops out under it. */
+    -webkit-mask-image: linear-gradient(to right, #000 6%, transparent 34%, transparent 66%, #000 94%);
+    mask-image: linear-gradient(to right, #000 6%, transparent 34%, transparent 66%, #000 94%);
+    opacity: .75;
+}
+
+/* Fine grain so the flat fields do not read as plastic. */
+.s2-root::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- Top rail ------------------------------------------------------------ */
+
+.s2-rail {
     display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .5rem 1.75rem;
+    font-size: .8125rem;
+    letter-spacing: .01em;
+    color: var(--limestone-dim);
+}
+
+.s2-mark {
+    font-family: var(--display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--limestone);
+}
+
+.s2-live {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 6px 12px;
-    margin-bottom: clamp(10px, 2vw, 16px);
-    padding: clamp(7px, 1.6vw, 11px) 12px;
-    background: rgba(43, 255, 136, 0.06);
-    border: 1px solid rgba(95, 200, 255, 0.3);
-    border-left: 3px solid #2bff88;
-}
-.t8-wkey {
-    font-size: clamp(0.5rem, 1.5vw, 0.68rem);
-    letter-spacing: 0.22em;
-    color: #5fc8ff;
-}
-.t8-wval {
-    font-size: clamp(0.62rem, 1.9vw, 0.92rem);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: #d6f4ff;
-    text-shadow: 0 0 12px rgba(95, 200, 255, 0.7);
+    gap: .5rem;
+    color: var(--malachite);
 }
 
-.t8-telemetry {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 6px;
-    font-size: clamp(0.5rem, 1.5vw, 0.72rem);
-    letter-spacing: 0.08em;
-    color: #5a7f9c;
-    border-top: 1px solid rgba(95, 200, 255, 0.25);
-    padding-top: 10px;
+.s2-live i {
+    width: .4375rem;
+    height: .4375rem;
+    border-radius: 50%;
+    background: var(--malachite);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--malachite) 60%, transparent);
+    animation: s2-pulse 2.4s ease-out infinite;
 }
-.t8-telemetry b { color: #2bff88; }
 
-.t8-ended {
+.s2-live b {
+    font-weight: 400;
+}
+
+.s2-live-go,
+.s2-root.is-ended .s2-live-wait {
     display: none;
-    margin-top: 14px;
-    text-align: center;
-    font-size: clamp(0.95rem, 3.4vw, 1.5rem);
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #2bff88;
-    text-shadow: 0 0 18px rgba(43, 255, 136, 0.8);
 }
-.t8-root.is-ended .t8-ended { display: block; }
+
+.s2-root.is-ended .s2-live-go {
+    display: inline;
+}
+
+.s2-root.is-ended .s2-live {
+    color: var(--gold);
+}
+
+.s2-root.is-ended .s2-live i {
+    background: var(--gold);
+}
+
+.s2-place {
+    margin-left: auto;
+}
+
+/* --- Countdown ----------------------------------------------------------- */
+
+.s2-stage {
+    align-self: center;
+    max-width: 62rem;
+}
+
+.s2-head {
+    margin: 0 0 clamp(.75rem, 1.6vw, 1.5rem);
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: .05em;
+    color: var(--limestone-dim);
+}
+
+.s2-clock {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.s2-slot {
+    padding: 0 clamp(.5rem, 1.6vw, 1.5rem);
+    animation: s2-lock .7s cubic-bezier(.16, .84, .44, 1) backwards;
+}
+
+.s2-slot:first-child {
+    padding-left: 0;
+}
+
+.s2-slot + .s2-slot {
+    border-left: 1px solid color-mix(in oklab, var(--gold) 22%, transparent);
+}
+
+.s2-slot:nth-child(1) { animation-delay: .05s; }
+.s2-slot:nth-child(2) { animation-delay: .14s; }
+.s2-slot:nth-child(3) { animation-delay: .23s; }
+.s2-slot:nth-child(4) { animation-delay: .32s; }
+
+.s2-num {
+    display: block;
+    font-family: var(--display);
+    font-size: clamp(3.25rem, 13vw, 9.5rem);
+    font-weight: 800;
+    line-height: .82;
+    letter-spacing: -.01em;
+    font-variant-numeric: tabular-nums;
+    color: var(--gold);
+    background-image: linear-gradient(172deg, var(--gold-pale) 0%, var(--gold) 46%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.s2-unit {
+    display: block;
+    margin-top: .625rem;
+    font-size: clamp(.75rem, 1.1vw, .9375rem);
+    font-weight: 500;
+    color: var(--limestone-dim);
+}
+
+.s2-when {
+    margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    font-weight: 500;
+    color: var(--limestone);
+}
+
+.s2-ended {
+    display: none;
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: .9;
+    letter-spacing: .01em;
+    text-wrap: balance;
+    color: var(--gold-pale);
+}
+
+.s2-root.is-ended .s2-head,
+.s2-root.is-ended .s2-clock,
+.s2-root.is-ended .s2-when {
+    display: none;
+}
+
+.s2-root.is-ended .s2-ended {
+    display: block;
+}
+
+/* --- Lanes --------------------------------------------------------------- */
+
+.s2-lanes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .5rem 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid color-mix(in oklab, var(--limestone) 12%, transparent);
+    font-size: .8125rem;
+}
+
+.s2-lanes-key {
+    color: var(--limestone-dim);
+}
+
+.s2-lanes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--limestone);
+}
+
+/* --- Motion -------------------------------------------------------------- */
+
+@keyframes s2-lock {
+    from {
+        opacity: 0;
+        transform: translateY(1.25rem);
+    }
+}
+
+@keyframes s2-pulse {
+    0%   { box-shadow: 0 0 0 0 color-mix(in oklab, var(--malachite) 55%, transparent); }
+    70%  { box-shadow: 0 0 0 .5rem transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .s2-slot,
+    .s2-live i {
+        animation: none;
+    }
+}
+
+/* --- Narrow screens ------------------------------------------------------ */
+
+@media (max-width: 40rem) {
+    :root {
+        --lane-angle: -34deg;
+    }
+
+    .s2-root {
+        gap: 1.5rem;
+    }
+
+    .s2-place {
+        margin-left: 0;
+    }
+
+    .s2-clock {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1.25rem, 5vw, 2rem) 0;
+    }
+
+    .s2-num {
+        font-size: clamp(3rem, 19vw, 5.5rem);
+    }
+
+    .s2-slot:nth-child(odd) {
+        padding-left: 0;
+    }
+
+    .s2-slot:nth-child(odd) {
+        border-left: 0;
+    }
+}
